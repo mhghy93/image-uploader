@@ -32,3 +32,23 @@ exports.uploadImage = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
+
+exports.getImage = async (req, res) => {
+  try {
+    const image = await Image.findById(req.params.id);
+    res.json(image);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+};
+
+exports.getAllImages = async (req, res) => {
+  try {
+    const images = await Image.find();
+    res.json(images);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+};
