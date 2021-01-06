@@ -1,0 +1,17 @@
+body {
+  background: #fafafb;
+  margin: 0;
+  padding: 0;
+}
+
+.image-uploader {
+  margin-top: 5rem;
+}
+
+.image-uploader-text {
+  font-family: Poppins;
+}
+
+.bg-image {
+  background: #f6f8fb;
+}
