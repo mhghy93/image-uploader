@@ -3,7 +3,6 @@ import { Button, Card, Image } from 'react-bootstrap';
 import ImageLogo from '../images/image.svg';
 
 class Home extends Component {
-  state = { image: {}, loading: false };
   render() {
     return (
       <Fragment>
