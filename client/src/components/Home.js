@@ -1,8 +1,23 @@
-import React, { Component, Fragment } from 'react';
-import { Button, Card, Image } from 'react-bootstrap';
+import React, { Component, Fragment, createRef } from 'react';
+import { Button, Card, Form, Image } from 'react-bootstrap';
 import ImageLogo from '../images/image.svg';
 
 class Home extends Component {
+  constructor() {
+    super();
+    this.hiddenFileInput = createRef();
+  }
+
+  handleClick = (event) => {
+    this.hiddenFileInput.current.click();
+  };
+
+  handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+
+    console.log(fileUploaded);
+  };
+
   render() {
     return (
       <Fragment>
@@ -34,19 +49,27 @@ class Home extends Component {
                 or
               </p>
               <div className="text-center">
-                <Button
-                  className="p-2"
-                  style={{
-                    background: '#2F80ED',
-                    color: '#ffffff',
-                    borderRadius: '8px',
-                    border: 'none',
-                    outline: 'none',
-                  }}
-                  bsPrefix
-                >
-                  Choose a file
-                </Button>
+                <Form>
+                  <Button
+                    className="p-2"
+                    onClick={this.handleClick}
+                    style={{
+                      background: '#2F80ED',
+                      color: '#ffffff',
+                      borderRadius: '8px',
+                      border: 'none',
+                      outline: 'none',
+                    }}
+                    bsPrefix
+                  >
+                    Choose a file
+                  </Button>
+                  <Form.File.Input
+                    ref={this.hiddenFileInput}
+                    onChange={this.handleChange}
+                    style={{ display: 'none' }}
+                  />
+                </Form>
               </div>
             </Card.Body>
           </Card>
