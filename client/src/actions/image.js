@@ -6,9 +6,14 @@ import {
 } from './types';
 import axios from 'axios';
 
-export const uploadImage = () => async (dispatch) => {
+export const uploadImage = (image) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  };
   try {
-    const res = await axios.get('/api/image/upload');
+    const res = await axios.get('/api/image/upload', image, config);
 
     dispatch({
       type: UPLOAD_IMAGE,
