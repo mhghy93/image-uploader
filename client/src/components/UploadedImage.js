@@ -1,9 +1,14 @@
 import React, { Component, Fragment } from 'react';
+import Loading from './Loading';
 
 class UploadedImage extends Component {
-  state = {};
+  state = { loading: true };
   render() {
-    return <Fragment>UploadedImage</Fragment>;
+    return (
+      <Fragment>
+        {this.state.loading ? <Loading /> : <p>Image Uploaded</p>}
+      </Fragment>
+    );
   }
 }
 
