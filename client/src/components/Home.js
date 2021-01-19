@@ -1,6 +1,9 @@
 import React, { Component, Fragment, createRef } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Button, Card, Form, Image } from 'react-bootstrap';
 import ImageLogo from '../images/image.svg';
+import { uploadImage } from '../actions/image';
 
 class Home extends Component {
   constructor() {
@@ -79,4 +82,13 @@ class Home extends Component {
   }
 }
 
-export default Home;
+Home.propTypes = {
+  uploadImage: PropTypes.func.isRequired,
+  image: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  image: state.image,
+});
+
+export default connect(mapStateToProps, { uploadImage })(Home);
