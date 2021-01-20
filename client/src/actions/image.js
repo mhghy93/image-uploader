@@ -13,7 +13,7 @@ export const uploadImage = (image) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.get('/api/image/upload', image, config);
+    const res = await axios.post('/api/image/upload', image, config);
 
     dispatch({
       type: UPLOAD_IMAGE,

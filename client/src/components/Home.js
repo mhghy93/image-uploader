@@ -6,8 +6,8 @@ import ImageLogo from '../images/image.svg';
 import { uploadImage } from '../actions/image';
 
 class Home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.hiddenFileInput = createRef();
   }
 
@@ -16,9 +16,11 @@ class Home extends Component {
   };
 
   handleChange = (event) => {
-    const fileUploaded = event.target.files[0];
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
 
-    console.log(fileUploaded);
+    this.props.uploadImage(formData);
   };
 
   render() {
