@@ -14,6 +14,7 @@ export default function image(state = initialState, action) {
       return {
         ...state,
         images: [payload, ...state.images],
+        image: payload,
         loading: false,
       };
     case VIEW_ALL_IMAGES:
